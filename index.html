@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172A">
+  <title>LOGIC Teens Church Lounge</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f7f4;
+      color: #10172a;
+      padding-bottom: 85px;
+    }
+
+    header {
+      background: #10172a;
+      color: white;
+      padding: 24px 20px;
+    }
+
+    .brand {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .tagline {
+      color: #d8c69b;
+      font-size: 13px;
+      margin-top: 7px;
+    }
+
+    main {
+      max-width: 650px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .welcome {
+      background: #eae7f2;
+      padding: 25px;
+      border-radius: 18px;
+      margin-bottom: 22px;
+    }
+
+    .welcome h1 {
+      font-size: 25px;
+      margin: 0 0 10px;
+    }
+
+    .welcome p {
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 19px;
+      margin: 25px 0 12px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e8e5df;
+      border-radius: 15px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+    }
+
+    .card p {
+      color: #626779;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      border-top: 1px solid #e5e3df;
+      padding: 12px 5px;
+      z-index: 10;
+    }
+
+    nav button {
+      border: 0;
+      background: transparent;
+      color: #626779;
+      font-size: 23px;
+      padding: 5px 12px;
+      cursor: pointer;
+    }
+
+    nav button.active {
+      color: #75629b;
+    }
+
+    nav small {
+      display: block;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    @media (min-width: 600px) {
+      main { padding: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">LOGIC</div>
+  <div class="tagline">GROW • CONNECT • BECOME</div>
+</header>
+
+<main>
+
+  <section class="page active" id="home">
+    <div class="welcome">
+      <h1>Welcome to LOGIC 👋</h1>
+      <p>A place to grow in faith, connect with others, and become who God created you to be.</p>
+    </div>
+
+    <h2 class="section-title">Your Lounge</h2>
+
+    <div class="card">
+      <h3>🌱 Grow</h3>
+      <p>Discover lessons, encouragement and ways to strengthen your faith.</p>
+    </div>
+
+    <div class="card">
+      <h3>💬 Community</h3>
+      <p>Connect with other teens in a safe and welcoming space.</p>
+    </div>
+
+    <div class="card">
+      <h3>📅 Upcoming Events</h3>
+      <p>Stay updated on what's happening in the LOGIC community.</p>
+    </div>
+  </section>
+
+  <section class="page" id="grow">
+    <h2 class="section-title">Grow 🌱</h2>
+    <div class="card">
+      <h3>Faith and Bible Lessons</h3>
+      <p>Lessons and resources will appear here.</p>
+    </div>
+  </section>
+
+  <section class="page" id="chat">
+    <h2 class="section-title">Community 💬</h2>
+    <div class="card">
+      <h3>Connect with others</h3>
+      <p>Our moderated community chat will be built here.</p>
+    </div>
+  </section>
+
+  <section class="page" id="events">
+    <h2 class="section-title">Events 📅</h2>
+    <div class="card">
+      <h3>LOGIC Events</h3>
+      <p>Church programmes and upcoming events will appear here.</p>
+    </div>
+  </section>
+
+  <section class="page" id="more">
+    <h2 class="section-title">More</h2>
+    <div class="card">
+      <h3>My Profile</h3>
+      <p>Your account and personal settings will appear here.</p>
+    </div>
+  </section>
+
+</main>
+
+<nav>
+  <button class="active" data-page="home">⌂<small>Home</small></button>
+  <button data-page="grow">🌱<small>Grow</small></button>
+  <button data-page="chat">☏<small>Chat</small></button>
+  <button data-page="events">▣<small>Events</small></button>
+  <button data-page="more">☰<small>More</small></button>
+</nav>
+
+<script>
+  const navButtons = document.querySelectorAll("nav button");
+  const pages = document.querySelectorAll(".page");
+
+  navButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const page = button.dataset.page;
+
+      pages.forEach(section => {
+        section.classList.toggle("active", section.id === page);
+      });
+
+      navButtons.forEach(item => {
+        item.classList.toggle("active", item === button);
+      });
+    });
+  });
+</script>
+
+</body>
+  </html>
+  
